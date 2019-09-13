@@ -17,4 +17,36 @@ class UI {
         });
     }
 
+    // Funcion recibe las regiones y las agrega en la lista del formulario
+    agregarRegiones(regiones) {
+
+        // Declarar variables que almacenarán el id y el nombre de la region
+        let id_region;
+        let nombre_region;
+        // Recorremos las regiones con un loop
+        regiones.forEach(element => {
+            // Asignar id y nombre de la region a las variables
+            id_region = element.region_id;
+            nombre_region = element.region_nombre;
+
+            $('#region').append(`<option value="${id_region}">${nombre_region}</option>`);
+
+        });
+    }
+
+    agregarProvincias(provincias) {
+
+        // Limpiar combobox
+        $('#provincia').html("");
+
+        let id_provincia;
+        let nombre_provincia;
+
+        provincias.forEach(element => {
+            id_provincia = element.provincia_id;
+            nombre_provincia = element.provincia_nombre;
+            $('#provincia').append(`<option value="${id_provincia}">${nombre_provincia}</option>`);
+        });
+    }
+
 }
