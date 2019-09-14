@@ -20,7 +20,7 @@
             <li data-target="#carousel" data-slide-to="1"></li>
             <li data-target="#carousel" data-slide-to="2"></li>
         </ol>
-        <a href="#subscribeBox" class="d-none d-md-block btn btn-danger btn-carousel scrolldown">Subscribirse</a>
+        <a href="#subscribeBox" class="d-none d-md-block btn btn-danger btn-carousel scrolldown">Cotizar</a>
         <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
 
@@ -61,11 +61,10 @@
             </a>
         </div>
     </div>
-    <div class="container pt-5">
+    <div class="container pt-3 pb-2">
         <div class="row">
             <div class="col-12 col-md-6">
-                <div class="card" id="subscribeBox">
-                    <p class="lead text-center pt-2">Subscribete</p>
+                <div class="card mt-1" id="subscribeBox">
                     <div class="card-body">
                         <form>
                             <div class="form-group">
@@ -100,10 +99,45 @@
                                 </select>
                             </div>
 
-                            <button type="submit" class="btn btn-danger">Registrarse</button>
+                            <div class="form-group">
+                                <label for="comuna">Comuna</label>
+                                <select id="comuna" class="form-control">
+                                    <option selected>Escoger comuna...</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn-danger">Solicitar Cotización</button>
                         </form>
                     </div>
                 </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <a href="about.html" class="text-decoration-none">
+                    <div class="card mt-1">
+                        <div class="card-body">
+                            <h1><i class="fas fa-question-circle text-secondary"></i> <span class="text-black-50">
+                                    ¿Quiénes
+                                    somos?</span></h1>
+
+                        </div>
+                    </div>
+                </a>
+                <a href="stores.html" class="text-decoration-none">
+                    <div class="card mt-1">
+                        <div class="card-body">
+                            <h1><i class="fas fa-store text-secondary"></i> <span class="text-black-50">
+                                    Tiendas</span></h1>
+                        </div>
+                    </div>
+                </a>
+                <a href="team.html" class="text-decoration-none">
+                    <div class="card mt-1">
+                        <div class="card-body">
+                            <h1><i class="fas fa-biking text-secondary"></i> <span class="text-black-50">
+                                    Team Monobike</span></h1>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </div>

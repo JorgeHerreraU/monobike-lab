@@ -49,4 +49,19 @@ class UI {
         });
     }
 
+    agregarComunas(comunas) {
+
+        // Limpiar combobox
+        $('#comuna').html("");
+
+        let id_comuna;
+        let nombre_comuna;
+
+        comunas.forEach(element => {
+            id_comuna = element.comuna_id;
+            nombre_comuna = element.comuna_nombre;
+            $('#comuna').append(`<option value="${id_comuna}">${nombre_comuna}</option>`);
+        });
+    }
+
 }
