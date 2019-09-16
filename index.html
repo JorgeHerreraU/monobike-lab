@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" />
+
+
+
+
     <title>Monobike!</title>
 </head>
 
@@ -27,7 +31,7 @@
                 <img class="d-none d-md-block img-fluid" src="./img/bike1.jpg" alt="First slide" />
                 <div class="carousel-caption d-none d-md-block">
                     <h3>Bicicletas Pablo</h3>
-                    <p>Las mas charchas del mercado</p>
+                    <p>Las mas veloces</p>
                 </div>
 
             </div>
@@ -45,8 +49,8 @@
 
                 <img class="d-none d-md-block img-fluid" src="./img/bike3.jpg" alt="Third slide" />
                 <div class="carousel-caption d-none d-md-block">
-                    <h3>? Bicicletas</h3>
-                    <p>Las más ?</p>
+                    <h3>Bicicletas Solis</h3>
+                    <p>Las más top</p>
                 </div>
 
             </div>
@@ -69,20 +73,18 @@
                         <form>
                             <div class="form-group">
                                 <label for="name">Nombre</label>
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="form-group">
+                                <input type="text" id="nombre" class="form-control" required>
                                 <label for="name">Apellido</label>
-                                <input type="text" class="form-control">
+                                <input type="text" id="apellido" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="name">Email</label>
-                                <input type="email" class="form-control">
+                                <input type="email" id="email" class="form-control" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="name">Telefono</label>
-                                <input type="phone" class="form-control">
+                                <input type="phone" id="telefono" class="form-control" required>
                             </div>
 
                             <div class="form-group">
@@ -106,7 +108,7 @@
                                 </select>
                             </div>
 
-                            <button type="submit" class="btn btn-danger">Solicitar Cotización</button>
+                            <input type="submit" class="btn btn-danger" value="Solicitar Cotización">
                         </form>
                     </div>
                 </div>
@@ -148,14 +150,76 @@
         </div>
     </footer>
 
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirmacion Cotizacion</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <a>Se enviara un cotización al mail: </a>
+                    <label id="mail1"></label>
+                    <br>
+                    <a>Datos: </a>
+                    <br>
+                    <label id="nombre1"></label>
+                    <br>
+                    <label id="apellido1"></label>
+                    <br>
+                    <label id="telefono1"></label>
+                    <br>
+                    <label id="region1"></label>
+                    <br>
+                    <label id="provincia1"></label>
+                    <br>
+                    <label id="comuna1"></label>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
     <script src="./js/ui.js"></script>
     <script src="./js/services.js"> </script>
+    <script src="./js/clienteclass.js"></script>
     <script src="./js/main.js"></script>
+    <script>
+        $("form").on('submit', cotizar)
+        function cotizar(e) {
+            e.preventDefault();
+            const cliente = new Cliente(
+                $("#nombre").val(),
+                $("#apellido").val(),
+                $("#email").val(),
+                $("#telefono").val(),
+                $("#region option:selected").text(),
+                $("#provincia option:selected").text(),
+                $("#comuna option:selected").text()
+            );
+            $("#mail1").text(cliente.email)
+            $("#nombre1").text("Nombre: " + cliente.nombre)
+            $("#apellido1").text("Apellido: " + cliente.apellido)
+            $("#telefono1").text("Teléfono: " + cliente.telefono)
+            $("#region1").text("Región: " + cliente.region)
+            $("#provincia1").text("Provincia: " + cliente.provincia)
+            $("#comuna1").text("Comuna: " + cliente.comuna)
+            $('#modal').modal('show');
+        }
+    </script>
+
 </body>
 
 </html>

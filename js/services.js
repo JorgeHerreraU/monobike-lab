@@ -13,3 +13,5 @@ class Services {
         return $.get(`https://duoc.salvarado.cl/api/Comuna/Provincia/${provincia_id}`);
     }
 }
+
+
